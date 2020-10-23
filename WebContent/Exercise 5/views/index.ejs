@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<!-- <header>
+    <h3>Welcome to Fast Food Inc!</h3>
+  </header> -->
+  <%- include('./partials/header.ejs') %>
+  <main>
+  <% if (arr.length>0){ %>
+  <table>
+ 
+  <th>Restaurant Names</th>   
+  <tr>
+  <% arr.forEach(item => { %>  
+      <tr>
+    <td><a href="restaurant/<%=item.name%>"><%= item.name %></a></td>
+  </tr>
+  <% }) %>
+  <!-- <tr>
+    <td><a href="restaurant.html">Subway</a></td>
+  </tr>
+  <tr>
+  <td><a href="restaurant.html">Panda Express</a></td>
+  </tr>
+  <tr>
+  <td><a href="restaurant.html">Chick-Fil-A</a></td>
+  </tr> -->
+</table>
+<% } %>  
+</main>
+<!-- <footer>
+   <p>Ashish Bisht<p>
+</footer> -->
+<%- include('./partials/footer.ejs') %>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+body{
+	margin:0;
+}
+
+h3{
+	margin: 0;
+	/* display: inline-block;  */
+}
+header{
+	color: white;
+	background-color: blue; 
+	text-align: center;
+	width: 100%;
+}
+footer{
+	color: white;
+	background-color: blue; 
+	text-align: center;
+	width: 100%;
+	position: absolute; 
+	bottom: 0;
+}
+table,td,th{
+	border: 1px solid black;
+}
+img{
+	border: 1px solid black;
+	width: 300px;
+}

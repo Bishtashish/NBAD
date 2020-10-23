@@ -1,0 +1,37 @@
+main {
+    /* make sure to cover the screen */
+    min-height: 100vh;
+  
+    /* need a solid bg to hide the footer */
+    background: white;
+  
+    /* put on top */
+    position: relative;
+    z-index: 1;
+  
+    font: 16px/1.4 system-ui, sans-serif;
+    padding: 2rem;
+  }
+  footer {
+    /* place on the bottom */
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  
+    background: #252a47;
+    display: grid;
+    place-items: center;
+    padding: 50px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+  }
+  p {
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Restaurant</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<!-- <header>
+    <h3>Welcome to Bojangles!</h3>
+  </header> -->
+  <%- include('./partials/header.ejs') %>
+  <img src="/<%= obj.name %>.jpg">
+  <main>
+  <table>
+  <tr>
+    <th>Restaurant Name</th>   
+    <th>Year founded</th>   
+    <th>CEO</th>   
+  </tr>
+  <tr>
+    <td><%= obj.name %></td>
+    <td><%= obj.yearFounded %></td>
+    <td><%= obj.owner %></td>
+  </tr>
+</table>
+</main>
+<!-- <footer>
+   <h3>Ashish Bisht</h3>
+</footer> -->
+<%- include('./partials/footer.ejs') %>
+</body>
+</html>

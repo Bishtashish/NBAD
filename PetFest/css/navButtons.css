@@ -1,0 +1,394 @@
+  #logInButton{
+	background-image: url("/login1.jpg");
+	float: right;
+	position: absolute;
+	top: 10%;
+	right: 1%;
+	/* grid-area: 1 / 1 / 2 / 2; --*/
+	grid-column: 4 / span 1;
+	margin-left: 0px;
+	background-color: #4CAF50;
+	border: none;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	/* position: fixed; ---*/
+	width: 100px;
+	height: 90px;
+	border-radius: 30px; 
+	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	border-bottom: 3px solid #4caf50;
+} 
+
+
+/* #logInButton{
+	display: inline-block;
+	font-size: 40px;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	color: #6ab04c;
+	margin: 0 16px;
+	transition: .4s linear;
+	position: relative;
+} */
+
+#logInButton:hover:enabled{
+	transform: scale(.8);
+	/* border: grey;
+	box-shadow: white;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	text-shadow: black;
+	color: white;
+	font-size: 150%; */
+	/* opacity: 0; */
+	/* transition: opacity 0.3s ease-in-out; */
+}
+
+#logInButton::before, #logInButton::after{
+	content: '';
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top:0;
+	transition: .4s linear;
+}
+
+#logInButton:hover::before{
+	border-left: 4px solid #4CAF50;
+	border-right: 4px solid #4CAF50;
+	transform: skewX(20deg);
+}
+#logInButton:hover::after{
+	border-top: 4px solid #4CAF50;
+	border-bottom: 4px solid #4CAF50;
+	transform: skewY(-20deg);
+}
+
+
+
+
+
+/* Transition to showing the bigger shadow on hover */
+#logInButton:hover::after {
+	opacity: 1;
+  }
+
+  #logInButton:disabled{
+	/* color: #c0c0c0; */
+	background-color: #ffffff;
+	filter: grayscale();
+	/* -webkit-filter: blur(2px); */
+  }
+
+  #connectionButton{
+	background-image: url("/conn.jpg");
+	float: right;
+	position: absolute;
+	top: 10%;
+	right: 130px;
+	/* grid-area: 1 / 1 / 2 / 2; */
+	grid-column: 5 / span 1;
+	margin-left: 0px;
+	background-color: #4CAF50;
+	border: none;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	/* position: fixed; */
+	width: 100px;
+	height: 90px;
+	border-radius: 30px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	border-bottom: 3px solid #4caf50;
+}
+
+#connectionButton:hover:enabled{
+	transform: scale(.8);
+	/* border: grey;
+	box-shadow: white;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	text-shadow: black; */
+	/* color: white; */
+	/* font-size: 100%; */
+	/* opacity: 0; */
+	/* transition: opacity 0.3s ease-in-out; */
+}
+/* Transition to showing the bigger shadow on hover */
+
+#connectionButton::before, #connectionButton::after{
+	content: '';
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top:0;
+	transition: .4s linear;
+}
+
+#connectionButton:hover::before{
+	border-left: 4px solid #4CAF50;
+	border-right: 4px solid #4CAF50;
+	transform: skewX(20deg);
+}
+#connectionButton:hover::after{
+	border-top: 4px solid #4CAF50;
+	border-bottom: 4px solid #4CAF50;
+	transform: skewY(-20deg);
+}
+
+
+#connectionButton:hover::after {
+	opacity: 1;
+  }
+
+  #connectionButton:disabled{
+	/* color: #c0c0c0; */
+	background-color: #ffffff;
+	filter: grayscale();
+	/* -webkit-filter: blur(2px); */
+  }
+
+#startButton{
+	background-image: url("/conn.jpg");
+	float: right;
+	position: absolute;
+	top: 10%;
+	right: 250px;
+	/* grid-area: 1 / 1 / 2 / 2; */
+	disabled:true;
+	grid-column: 3 / span 1;
+	margin-left: 0px;
+	background-color: #4CAF50;
+	border: none;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	/* position: fixed; */
+	width: 100px;
+	height: 90px;
+	border-radius: 30px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	border-bottom: 3px solid #4caf50;
+}
+
+#startButton:hover:enabled{
+	transform: scale(1.1, 1.1);
+	/* border: grey;
+	box-shadow: white;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	text-shadow: black;
+	color: white;
+	font-size: 100%; */
+	/* opacity: 0; */
+	/* transition: opacity 0.3s ease-in-out; */
+}
+/* Transition to showing the bigger shadow on hover */
+
+#startButton::before, #startButton::after{
+	content: '';
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top:0;
+	transition: .4s linear;
+}
+
+#startButton:hover::before{
+	border-left: 4px solid #4CAF50;
+	border-right: 4px solid #4CAF50;
+	transform: skewX(20deg);
+}
+#startButton:hover::after{
+	border-top: 4px solid #4CAF50;
+	border-bottom: 4px solid #4CAF50;
+	transform: skewY(-20deg);
+}
+
+
+
+#startButton:hover::after {
+	opacity: 1;
+  }
+
+  #startButton:disabled{
+	/* color: #c0c0c0; */
+	background-color: #ffffff;
+	filter: grayscale();
+	/* -webkit-filter: blur(2px); */
+  }
+
+#signUpButton{
+	background-image: url("/conn.jpg");
+	float: right;
+	position: absolute;
+	top: 10%;
+	right: 370px;
+	/* grid-area: 1 / 1 / 2 / 2; */
+	disabled:true;
+	grid-column: 2 / span 1;
+	margin-left: 0px;
+	background-color: #4CAF50;
+	border: none;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	/* position: fixed; */
+	width: 100px;
+	height: 90px;
+	border-radius: 30px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	border-bottom: 3px solid #4caf50;
+}
+
+#signUpButton:hover:enabled{
+	transform: scale(.8);
+	/* border: grey;
+	box-shadow: white;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	text-shadow: black; */
+	/* color: white; */
+	/* font-size: 100%; */
+	/* opacity: 0; */
+	/* transition: opacity 0.3s ease-in-out; */
+}
+/* Transition to showing the bigger shadow on hover */
+
+#signUpButton::before, #signUpButton::after{
+	content: '';
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top:0;
+	transition: .4s linear;
+}
+
+#signUpButton:hover::before{
+	border-left: 4px solid #4CAF50;
+	border-right: 4px solid #4CAF50;
+	transform: skewX(20deg);
+}
+#signUpButton:hover::after{
+	border-top: 4px solid #4CAF50;
+	border-bottom: 4px solid #4CAF50;
+	transform: skewY(-20deg);
+}
+
+
+
+#signUpButton:hover::after {
+	opacity: 1;
+  }
+
+  #signUpButton:disabled{
+	/* color: #c0c0c0; */
+	background-color: #ffffff;
+	filter: grayscale();
+	/* -webkit-filter: blur(2px); */
+  }
+
+#savedButton{
+	background-image: url("/conn.jpg");
+	float: right;
+	position: absolute;
+	top: 10%;
+	/* right: 650px; */
+	right: 250px;
+	/* grid-area: 1 / 1 / 2 / 2; */
+	disabled:true;
+	grid-column: 1 / span 1;
+	margin-left: 0px;
+	background-color: #4CAF50;
+	border: none;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	/* position: fixed; */
+	width: 100px;
+	height: 90px;
+	border-radius: 30px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	border-bottom: 3px solid #4caf50;
+}
+
+#savedButton:hover:enabled{
+	transform: scale(.8);
+	/* border: grey;
+	box-shadow: white;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	text-shadow: black; */
+	/* ßcolor: white; */
+	/* font-size: 100%; */
+	/* opacity: 0; */
+	/* transition: opacity 0.3s ease-in-out; */
+}
+/* Transition to showing the bigger shadow on hover */
+
+#savedButton::before, #savedButton::after{
+	content: '';
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top:0;
+	transition: .4s linear;
+}
+
+#savedButton:hover::before{
+	border-left: 4px solid #4CAF50;
+	border-right: 4px solid #4CAF50;
+	transform: skewX(20deg);
+}
+#savedButton:hover::after{
+	border-top: 4px solid #4CAF50;
+	border-bottom: 4px solid #4CAF50;
+	transform: skewY(-20deg);
+}
+
+
+#savedButton:hover::after {
+	opacity: 1;
+  }
+
+  #savedButton:disabled{
+	/* color: #c0c0c0; */
+	background-color: #ffffff;
+	filter: grayscale();
+	/* -webkit-filter: blur(2px); */
+  }
+
+
+
+
+
+
+ 
