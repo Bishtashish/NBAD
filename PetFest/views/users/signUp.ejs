@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sign Up</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/navButtons.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/signUp.css'>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="/signUp.js"></script>
+    <!-- <script src='main.js'></script> -->
+</head>
+
+<body>
+    <div id="container">
+        <%- include('../partials/header.ejs') %>
+        <main>
+            <div class = "wrap">
+                <h2> Sign up here</h2>
+                <form action="/users/signUp" method="POST">
+                    <input type="text" placeholder="First Name" name="firstName" required>
+                    <input type="text" placeholder="Last Name" name="lastName" required>
+                    <input type="text" placeholder="Email" name="email" required>
+                    <input type="password" placeholder="Pawwsord" name="password" required>
+                    <input type="submit" value="Submit">
+
+                </form>
+            </div>
+        </main> 
+      
+        <%- include('../partials/footer.ejs') %>
+    </div>
+</body>
+</html>

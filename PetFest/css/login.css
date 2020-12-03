@@ -9,9 +9,10 @@ body{
 	padding: 0;
 	position:relative;
 	font-family: sans-serif;
-	background: url(../resources/backgroundLogIn.jpg) no-repeat;
+	background: url(backgroundLogIn.jpg) no-repeat;
 	background-size: cover;
 	padding-bottom: 150px;
+	/* z-index:9; */
 }
 
 .login-box{
@@ -21,8 +22,8 @@ body{
 	position: absolute;
 	margin: auto;
 	background: rgba(0,0,0,0.8);
-	top:50%;
-	left: 45%;
+	top:65%;
+	left: 38%;
 	padding: 50px;
 	/* transform:translate(-50%,-50%); */
 	color:white;

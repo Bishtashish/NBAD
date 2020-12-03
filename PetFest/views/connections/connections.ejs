@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Connections</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/navButtons.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/connections.css'>
+    <script src="/connections.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    
+    <!-- <script src='main.js'></script> -->
+</head>
+
+<body>
+    <div id="container">
+        <%- include('../partials/header.ejs') %> 
+        <main>
+            <!-- <div id="image"></div> -->
+
+            <% newArray.forEach(arrMeet => {%>
+            <div class="meetup">
+                <% var val = Object.values(arrMeet)[0]; %>
+                <% var key = Object.keys(arrMeet)[0]; %>
+                <% if (val.length>0){ %>
+                <h2> Pet <%=key%></h2>
+                <ul>
+                    <% val.forEach(function(item,index) { %>     
+                    <li onclick="window.location.href='/connections/<%= item._id %>'">
+                        
+                        <span><%= index+1 %></span>
+                        <%= item.connectionName %>
+                        <% if(item.hostName === user.id) {%>
+                            <form>
+                                <button type="submit" formmethod="GET" formaction="/connections/<%= item._id%>/update">Edit</button>
+                                <button type="submit" formmethod="POST" formaction="/connections/<%= item._id%>?_method=DELETE">Delete</button>
+                            </form>
+                            <% } %>
+                    </li>
+                    <% }) %>   
+                </ul>
+                <% } %>  
+            </div>
+            <%})%>
+
+            
+            
+        </main>
+
+        <%- include('../partials/footer.ejs') %>
+    </div>
+</body>
+
+
+</html>

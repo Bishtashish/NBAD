@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Log In</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/navButtons.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/login.css'>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="/logIn.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+    <!-- <script src='main.js'></script> -->
+</head>
+
+<body>
+    <div id="container">
+        <%- include('../partials/header.ejs') %>
+        <main>
+            h3>Welcome
+                <%= user.name%>
+            </h3>
+            <table>
+                <tr>
+                    <th>Restaurant Name</th>
+                </tr>
+                <% data.forEach(element=>{%>
+                    <tr>
+                        <td>
+                            <a href="/connections/<%= element._id%>">
+                                <%= element.name%>
+                            </a><br>
+
+                        
+                        </td>
+                    </tr>
+                    <%});%>
+            </table>
+
+
+        </main>
+
+        <%- include('../partials/footer.ejs') %>
+    </div>
+</body>
+
+</html>

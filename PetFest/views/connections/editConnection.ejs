@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Home | Edit Connection</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='/main.css'>
+    <link rel='stylesheet' href='/navButtons.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div id="container"></div>
+    <%- include('../partials/header.ejs')%>
+    <form action="/connections/<%= data._id%>?_method=PUT" method="POST">
+        <label for="connectionName">Title</label><br>
+        <input type="text" id="connectionName" name="connectionName" value="<%= data.connectionName%>"><br><br>
+        <label for="dateTime">Date</label><br>
+        <input type="date" id="dateTime" name="dateTime" value="<%= data.dateTime%>"><br><br>
+        <label for="startTime">Start Time</label><br>
+        <input type="date" id="startTime" name="startTime" value="<%= data.startTime%>"><br><br>
+        <label for="endTime">End Time</label><br>
+        <input type="date" id="endTime" name="endTime" value="<%= data.endTime%>"><br><br>
+        <label for="location">Location</label><br>
+        <input type="text" id="location" name="location" value="<%= data.location%>"><br><br>
+        <label for="connectionTopic">Category</label><br>
+        <select id="connectionTopic">
+          <%   cat.forEach(topic =>{%>
+            <% selected = (topic == data.connectionTopic) ? "selected" : "";
+           <option value="<%=topic%>"><%=selected%>><%=topic%></option>
+           <%})%>
+        </select>
+        <label for="details">Details</label><br>
+        <textarea id="details" name="details" rows="4" cols="50"><%=data.details%></textarea><br>
+        <label for="hostName">Host Name</label><br>
+        <input type="text" id="hostName" name="hostName" value="<%= data.hostName%>"><br>
+        <label for="image">Image</label><br>
+        <input type="text" id="image" name="image" value="<%= data.image%>"><br><br>
+        <button>Submit</button><br>
+    </form>
+    <%- include('../partials/footer.ejs')%>
+
+    </div>
+</body>
+
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Log In</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/navButtons.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/login.css'>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="/logIn.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+    <!-- <script src='main.js'></script> -->
+</head>
+
+<body>
+    <div id="container">
+        <%- include('../partials/header.ejs') %>
+        <main>
+            <div class="login-box">
+                <h1>Login</h1>
+                <form action="/users/logIn" method="POST">
+                    <div class="textbox">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                        <input type="text" placeholder="Username" name="email" value="">
+                    </div>
+                    <div class="textbox">
+                        <i class="fas fa-paw" aria-hidden="true"></i>
+                        <input type="password" placeholder="pawwsword" name="password" value="">
+                    </div>
+                    <button class="btn" type="submit" name="btn" value="Submit">Submit</button>
+                        <!-- onclick="window.location.href='savedConnection'"> -->
+                </form>
+            </div>
+
+
+        </main>
+
+        <%- include('../partials/footer.ejs') %>
+    </div>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
   #logInButton{
-	background-image: url("/login1.jpg");
+	background-image: url("login1.jpg");
 	float: right;
 	position: absolute;
 	top: 10%;
@@ -89,7 +89,7 @@
   }
 
   #connectionButton{
-	background-image: url("/conn.jpg");
+	background-image: url("conn.jpg");
 	float: right;
 	position: absolute;
 	top: 10%;
@@ -162,7 +162,7 @@
   }
 
 #startButton{
-	background-image: url("/conn.jpg");
+	background-image: url("conn.jpg");
 	float: right;
 	position: absolute;
 	top: 10%;
@@ -237,7 +237,7 @@
   }
 
 #signUpButton{
-	background-image: url("/conn.jpg");
+	background-image: url("conn.jpg");
 	float: right;
 	position: absolute;
 	top: 10%;
@@ -312,7 +312,7 @@
   }
 
 #savedButton{
-	background-image: url("/conn.jpg");
+	background-image: url("conn.jpg");
 	float: right;
 	position: absolute;
 	top: 10%;

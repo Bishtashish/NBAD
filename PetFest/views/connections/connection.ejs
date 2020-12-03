@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Connection</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/navButtons.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/connection.css'>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="/connections.js"></script>
+    <!-- <script src='main.js'></script> -->
+</head>
+
+<body>
+    <!-- <base href=””> -->
+    <div id="container">
+        <%- include('../partials/header.ejs') %>
+        <main>
+            <h2 id="topic">Pet <%= item.connectionTopic%></h2>
+            <h2 id="name"><%= item.connectionName%></h2>
+            <!-- <div id="imageLab"></div> -->
+            <!-- <img src="../resources/breed/Golden Retriever.png" alt="user"> -->
+
+            <img src="<%= item.image%>" alt="user">
+
+            <p id="date"><%= item.dateTime%></p>
+            <p id="host">Host: <%=item.hostName.firstName%></p>
+            <p id="about"><%= item.details%></p>
+
+            
+
+            <%if(user.id===item.hostName.id){%>
+
+                <p class="q">Do you want to make any changes ?</p>
+
+            <button class="yesButton" onclick="window.location.href='/connections/<%=item._id%>/update'">Update</button>
+
+            <form class="maybeButton" action="/connections/<%= item._id%>?_method=DELETE" method='POST'><button
+                class="maybeButton">Delete</button></form>
+
+
+            <%} else {%>
+
+                <p class="q">Are you interested ?</p>
+
+            <form class="yesButton" action="/users/savedConnections/<%= item._id%>?_method=PUT" method='POST'><button
+                    class="yesButton">Yes</button></form>
+
+            <button class="noButton" onclick="window.location.href='/users/savedConnections'">No</button>
+            <button class="maybeButton" onclick="window.location.href='/users/savedConnections'">Maybe</button>
+            <%}%>
+        </main> 
+      
+        <%- include('../partials/footer.ejs') %>
+    </div>
+</body>
+
+</html>

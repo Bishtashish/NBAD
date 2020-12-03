@@ -18,7 +18,7 @@ body{
 	padding: 0;
 	position:relative;
 	font-family: sans-serif;
-	background: url("") no-repeat;
+	background: url(backgroundLogIn.jpg) no-repeat;
 	background-size: cover;
 	padding-bottom: 150px;
 }

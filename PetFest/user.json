@@ -1,0 +1,95 @@
+[{
+  "_id": {
+    "$oid": "5fc70d907a56c6f48c3943bd"
+  },
+  "savedConnection": [
+    {
+      "$oid": "5fb976717ba26e93353ddb87"
+    }
+  ],
+  "firstName": "Ashish",
+  "lastName": "Bisht",
+  "email": "abisht1@uncc.edu",
+  "password": "$2b$10$7orW6oVOZDKj6c/L7Ej/8.b2LrgoEigIPs0ho9YdWfqA3A33Obzl.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc7f9534a1a1019addd86cb"
+  },
+  "savedConnection": [],
+  "firstName": "Joy",
+  "lastName": "Edwards",
+  "email": "joy@uncc.edu",
+  "password": "$2b$10$NqK9FZ8mbDQGq5EHuaKKyulfkC3mSVPlQkB3m7OaimQ3FEeaeH0Tq",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc7fa16d429681af0c342e1"
+  },
+  "savedConnection": [],
+  "firstName": "Tenzin",
+  "lastName": "Dorje",
+  "email": "tenzin@uncc.edu",
+  "password": "$2b$10$70FLhakxCFfmgFeYvcEDC.M1hFVsIk5mPQzbP9R/U8ejPHJ/wJioy",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc7fadf428d561b5a541690"
+  },
+  "savedConnection": [],
+  "firstName": "Hima",
+  "lastName": "Abe",
+  "email": "hima@uncc.edu",
+  "password": "$2b$10$D5mOOfEhgqzSNzZAhtk7VuwDvx7PAdgSkuBNlGmGq.3YSt8OL.Xne",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc7fb6c788aa81bb014835b"
+  },
+  "savedConnection": [],
+  "firstName": "Paw ",
+  "lastName": "Pd",
+  "email": "paw@uncc.edu",
+  "password": "$2b$10$ib8i4aR9Yw9SgkSvrjRL6ODjq5l8g1l9Zl5GpaMDfqiDRzlSFjqGa",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc7fc0f2030e11c396b3a83"
+  },
+  "savedConnection": [],
+  "firstName": "Saddie",
+  "lastName": "Smith",
+  "email": "saddie@uncc.edu",
+  "password": "$2b$10$TRDGKFUCj3.yxHik4bPjZOFeyJGLQ63jR4LVG.Z6oaL4oFohDXzqq",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc7fc88624a581c7c8b605e"
+  },
+  "savedConnection": [],
+  "firstName": "Merch",
+  "lastName": "Store",
+  "email": "merch@uncc.edu",
+  "password": "$2b$10$KVCJTtSI7/XGIWSGfVqRPefb1YpjaGXfqdkRfhZs7pHu5ryBX4D/K",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc7fd3c35f61f1cd8e2ba40"
+  },
+  "savedConnection": [],
+  "firstName": "Vet",
+  "lastName": "Care",
+  "email": "vet@uncc.edu",
+  "password": "$2b$10$79Za8au4Q4YOAHXx6Zp1DOo7hJLcUmfZr4jXm6Lou.sSL7st2WPx.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fc7fdb71966271d172afe7e"
+  },
+  "savedConnection": [],
+  "firstName": "News",
+  "lastName": "Daily",
+  "email": "news@uncc.edu",
+  "password": "$2b$10$vjDJP.uF44H4zXTZGQsOMupMl6V1vefbhSmXB1KFPGIV2PpMeFQAS",
+  "__v": 0
+}]

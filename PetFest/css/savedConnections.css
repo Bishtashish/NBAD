@@ -1,6 +1,8 @@
 
     img{
-        scale: 50%;
+        height: 120px;
+        width: 120px;
+        /* scale: 40%; */
     }
     
     #updateButton{
@@ -58,9 +60,28 @@
     table,td,th{
         border: 1px solid black;
         /* white-space: nowrap; */
+        color:black;
     }   
 
     td,th{
         text-align: center;
     }
+    /* body {
+    display: flex;
+    flex-direction: column;
+    } */
+    .footer {
+        position: absolute;
+	left:0;
+	bottom:0;
+	top: 1550px;
+	/* top:100%; */
+	width:100%;
+	place-items: center;
+	display: grid;
+	padding: 0%;
+	background: transparent;
+	z-index: 2;
+        /* flex-shrink: 0; */
+      }
     

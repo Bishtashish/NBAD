@@ -36,8 +36,10 @@
     padding:10px;
     width: 100%;
     background:#fff;
+    color:black;
     box-shadow: 0 5px 25px rgba(0,0,0,.1);
     transition: transform 0.5s;
+    
 }
 
 .meetup ul:hover{
@@ -72,11 +74,15 @@
     color: #fff;
 } 
 
+main{
+    padding-bottom: 0px;
+}
+
 .footer{
-	position: absolute;
+	position: relative;
 	left:0;
 	bottom:0;
-	top: 1990px;
+	/* top: 2010px; */
 	/* top:100%; */
 	width:100%;
 	place-items: center;
@@ -85,3 +91,12 @@
 	background: transparent;
 	z-index: 2;
 } 
+
+/* #footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 40px;
+  } */
