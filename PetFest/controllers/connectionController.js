@@ -17,9 +17,7 @@ exports.getAllConnections = (req, res, next) => {
                 newArray.push(obj);
             });
 
-            
-
-            res.status(200).render('connections/connections', { newArray, name: req.session.user.name+' Welcome to PetFest!'});
+            res.status(200).render('connections/connections', { newArray, name: req.session.user.name + ' Welcome to PetFest!' });
 
         })
         .catch(err => {
@@ -31,15 +29,16 @@ exports.getAllConnections = (req, res, next) => {
 exports.getConnectionDetail = (req, res, next) => {
     // console.log(req.param.id);
     Connection.findById(req.params.id)
-    // .populate('hostName','firstName')
-    .populate('hostName')
+        // .populate('hostName','firstName')
+        .populate('hostName')
         .then(result => {
-            if(result){
+            if (result) {
                 // console.log(result)
-                res.render('connections/connection', {item: result, name: req.session.user.name+' Welcome to PetFest!'});
+                res.render('connections/connection', { item: result, name: req.session.user.name + ' Welcome to PetFest!' });
             }
-            else{
-                next();}
+            else {
+                next();
+            }
         })
         .catch(err => {
             console.log(err);
@@ -48,11 +47,24 @@ exports.getConnectionDetail = (req, res, next) => {
 }
 
 exports.getConnectionCreate = (req, res, next) => {
-    res.render('connections/create', {name: req.session.user.name+' Welcome to PetFest!'});
+
+   
+    Connection.find()
+        .then(all => {
+            topics = [];
+            all.forEach(item => {
+                if (!topics.includes(item.connectionTopic))
+                    topics.push(item.connectionTopic);
+            });
+            res.render('connections/newConnection', { conTopics: topics, name: req.session.user.name + ' Welcome to PetFest!' });
+        });
+  
 }
 
 
 exports.createConnection = (req, res, next) => {
+
+   
     let connection = new Connection({
         connectionName: req.body.connectionName,
         dateTime: req.body.dateTime,
@@ -61,7 +73,7 @@ exports.createConnection = (req, res, next) => {
         connectionTopic: req.body.connectionTopic,
         details: req.body.details,
         location: req.body.location,
-        hostName: req.session.hostName.id,
+        hostName: req.session.user.id,
         image: req.body.image
     });
     connection.save()
@@ -79,18 +91,28 @@ exports.getConnectionUpdate = (req, res, next) => {
 
     var topics = [];
     Connection.find()
-    .then(all =>{
-        topics = [];
-        all.forEach(item => {
-            if (!topics.includes(item.connectionTopic))
-                topics.push(item.connectionTopic);
-        });
-    })
+        .then(all => {
+            topics = [];
+            all.forEach(item => {
+                if (!topics.includes(item.connectionTopic))
+                    topics.push(item.connectionTopic);
+            });
+        })
 
     Connection.findById(req.params.id)
-        .then(result => {
-            if (result && result.user.equals(req.session.user.id))
-                res.render('connections/editConnection', { data: result,cat: topics, name: req.session.user.name+' Welcome to PetFest!' });
+        .then(ifTrue => {
+            if (ifTrue && ifTrue.hostName.equals(req.session.user.id))
+
+                Connection.findById(req.params.id)
+                    .populate('hostName')
+                    .then(conn => {
+                        if (conn)
+                            res.render('connections/editConnection', { data: conn, cat: topics, name: req.session.user.name + ' Welcome to PetFest!' });
+                        else
+                            // next();
+                            res.redirect('/connections');
+                    })
+
             else
                 // next();
                 res.redirect('/connections');
@@ -102,6 +124,7 @@ exports.getConnectionUpdate = (req, res, next) => {
 }
 
 exports.updateConnection = (req, res, next) => {
+
     let conParams = {
         connectionName: req.body.connectionName,
         dateTime: req.body.dateTime,
@@ -110,16 +133,18 @@ exports.updateConnection = (req, res, next) => {
         connectionTopic: req.body.connectionTopic,
         details: req.body.details,
         location: req.body.location,
-        hostName: req.body.hostName,
+        hostName: req.session.user.id,
         image: req.body.image
     };
-    connection.findById(req.params.id)
+    Connection.findById(req.params.id)
         .then(result => {
-            if (result.user.equals(req.session.user.id))
+            if (result.hostName.equals(req.session.user.id))
                 Connection.findByIdAndUpdate(req.params.id, { $set: conParams })
                     .then(result => {
-
-                        res.redirect('connections/' + req.params.id);
+                        if (result)
+                            res.redirect('/connections/' + req.params.id);
+                        else
+                            res.redirect('/connections');
                     })
             else
                 res.redirect('/connections');
@@ -139,7 +164,7 @@ exports.getConnectionByCatAndName = (req, res, next) => {
     Connection.findOne({ connectionName: name, connectionTopic: cat })
         .then((item) => {
             console.log("val " + JSON.stringify(item));
-            if (item !== undefined) res.render('connection', { item, name: req.session.user.name+' Welcome to PetFest!' });
+            if (item !== undefined) res.render('connection', { item, name: req.session.user.name + ' Welcome to PetFest!' });
             else {
                 var errString = "No matching connection can be found.";
                 res.status(404).render('error', { errString });
@@ -155,7 +180,7 @@ exports.getConnectionByCatAndName = (req, res, next) => {
 exports.deleteConnection = (req, res, next) => {
     Connection.findById(req.params.id)
         .then(result => {
-            if (result.user.equals(req.session.user.id))
+            if (result.hostName.equals(req.session.user.id))
                 Connection.findByIdAndDelete(req.params.id)
                     .then(result => {
                         res.redirect('/connections');
@@ -192,7 +217,7 @@ exports.saveConnectionToUser = (req, res, next) => {
                                         User.findById(req.session.id, { savedConnections: 1 })
                                             .then(conArray => {
                                                 if (conArray)
-                                                    res.render('connections/savedConnection', { conList, name: req.session.user.name+' Welcome to PetFest!' });
+                                                    res.render('connections/savedConnection', { conList, name: req.session.user.name + ' Welcome to PetFest!' });
                                                 else
                                                     next();
                                             });
@@ -201,7 +226,7 @@ exports.saveConnectionToUser = (req, res, next) => {
                                         User.findById(req.session.id, { savedConnections: 1 })
                                             .then(conArray => {
                                                 if (conArray)
-                                                    res.render('connections/savedConnection', { conList, name: req.session.user.name+' Welcome to PetFest!' });
+                                                    res.render('connections/savedConnection', { conList, name: req.session.user.name + ' Welcome to PetFest!' });
                                                 else
                                                     next();
                                             });
@@ -228,7 +253,7 @@ exports.deleteConnectionFromUser = (req, res, next) => {
                             User.findById(req.session.id, { savedConnections: 1 })
                                 .then(conArray => {
                                     if (conArray)
-                                        res.render('connections/savedConnection', { conList, name: req.session.user.name+' Welcome to PetFest!'});
+                                        res.render('connections/savedConnection', { conList, name: req.session.user.name + ' Welcome to PetFest!' });
                                     else
                                         next();
                                 });
@@ -237,7 +262,7 @@ exports.deleteConnectionFromUser = (req, res, next) => {
                             User.findById(req.session.id, { savedConnections: 1 })
                                 .then(conArray => {
                                     if (conArray)
-                                        res.render('connections/savedConnection', { conList, name: req.session.user.name+' Welcome to PetFest!' });
+                                        res.render('connections/savedConnection', { conList, name: req.session.user.name + ' Welcome to PetFest!' });
                                     else
                                         next();
                                 });

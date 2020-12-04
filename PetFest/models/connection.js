@@ -8,15 +8,15 @@ var schemaRes = new Schema({
         required:true
     },
     dateTime: {
-        type: Number,
+        type: String,
         required:true
     },
     startTime: {
-        type: Number,
+        type: String,
         required:true
     },
     endTime: {
-        type: Number,
+        type: String,
         required:true
     },
     connectionTopic: {

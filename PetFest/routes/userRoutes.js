@@ -11,6 +11,9 @@ router.get('/logIn', isLoggedOut, userController.getUserLogin);
 
 router.post('/logIn', isLoggedOut, userController.postUserLogin);
 
+router.get('/logOut', isLoggedIn, userController.getUserLogout);
+
+
 
 
 router.get('/savedConnections', isLoggedIn, userController.getSavedConnections);

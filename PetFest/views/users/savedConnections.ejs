@@ -1,83 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Saced Connections</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/navButtons.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/savedConnections.css'>
-    
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    
-    <!-- <script src='main.js'></script> -->
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Saced Connections</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/navButtons.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/savedConnections.css'>
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+  <!-- <script src='main.js'></script> -->
 </head>
 
 <body>
-    <div id="container">
-        <%- include('../partials/header.ejs') %>
-        <main>
-            <h3>Saved Connections</h3>
-            <% if (conList.length>0){ %>
-            <table style="width:100%">
-                <tr>  
-                  <th>Name</th>
-                  <th>Event</th>
-                  <th>Date</th>
-                  <th>Host</th>
-                  <th>Image</th>
-                  <th>Action</th>
-                </tr>
-                <% conList .forEach(item => { %>  
-                <tr>
-                  <td><%=item.connectionName%></td>
-                  <td><%=item.connectionTopic%></td>
-                  <td><%=item.dateTime%></td>
-                  <td><%=item.hostName.firstName%></td>
-                  <td><img src="<%=item.image%>" alt="some"></td>
-                  <td>
-                    <button id="updateButton">Update </button>
-                    <button id ="deleteButton" onclick="window.location.href='/savedConnection/<%=item.connectionName%>/del'"> Delete</button>
-                </td>
-                </tr>
-                <% }) %>
-              </table>
-              <% } %>  
-
-
-              
-              <% if (saveList.length>0){ %>
-
-                h3>Welcome
-                    <%= user.name%>
-                </h3>
-                <table>
-                    <tr>
-                        <th>Restaurant Name</th>
-                    </tr>
-                    <% saveList.forEach(element=>{%>
-                        <tr>
-                            <td>
-                                <a href="/connections/<%= element._id%>">
-                                    <%= element.name%>
-                                </a><br>
-    
-                            
-                            </td>
-                        </tr>
-                        <%});%>
-                </table>
-  
-              
+  <div id="container">
+    <%- include('../partials/header.ejs') %>
+    <main>
+      <h3>Saved Connections</h3>
+      <% if (conList.length>0){ %>
+      <table class="saved" style="width:100%">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Event</th>
+          <th>Date</th>
+          <th>Host</th>
+          <th>Image</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+        <% conList .forEach(item => { %>
+        <tbody>
+        <tr>
+          <td><%=item.connectionName%></td>
+          <td><%=item.connectionTopic%></td>
+          <td><%=item.dateTime%></td>
+          <td><%=item.hostName.firstName%></td>
+          <td><img src="<%=item.image%>" alt="some"></td>
+          <td>
+            <button id="updateButton">Update </button>
+            <button id="deleteButton" onclick="window.location.href='/savedConnection/<%=item.connectionName%>/del'">
+              Delete</button>
+          </td>
+        </tr>
+      </tbody>
+        <% }) %>
+      </table>
+      <% } %>
 
 
 
+      <% if (saveList.length>0) { %>
 
-        </main> 
-      
-        <%- include('../partials/footer.ejs') %>
-    </div>
+      <h3><%= user.name%>'s Connections</h3>
+      <table class="created">
+        <thead>
+        <tr>
+          <th>Connection Name</th>
+          <th>Connection Topic</th>
+          <th>Date</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          
+        </tr>
+      </thead>
+        <% saveList.forEach(element=>{%>
+          <tbody>
+        <tr>
+          <td>
+            <a href="/connections/<%= element._id%>">
+              <%= element.connectionName%>
+            </a><br>
+          </td>
+          <td>
+            <%= element.connectionTopic%>
+          </td>
+          <td>
+            <%= element.dateTime%>
+          </td>
+          <td>
+            <%= element.startTime%>
+          </td>
+          <td>
+            <%= element.endTime%>
+          </td>
+        </tr>
+      </tbody>
+        <%});%>
+      </table>
+      <%}%>
+
+
+
+
+
+
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+  </div>
+  <script src="/savedConnection.js"></script>
 </body>
-<script src="/savedConnection.js"></script>
+
+
 </html>

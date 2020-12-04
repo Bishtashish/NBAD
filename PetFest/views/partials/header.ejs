@@ -1,12 +1,19 @@
 <header>
     <div class="center">
         <h1 onclick="window.location.href='/index'">PetFest</h1>
-        <div id="image"></div>
-        <button id="logInButton" onclick="window.location.href='/users/logIn'">Log In</button>
+        <div id="logo"></div>
+        <%if(user) {%>
+
+        <button class="savedButton" onclick="window.location.href='/users/savedConnections'">Home</button>
+        <button class="connectionButton" onclick="window.location.href='/connections/'">Connect</button>
+        <button class="logInButton" onclick="window.location.href='/users/logOut'">logOut</button>
+        <button class="createButton" onclick="window.location.href='/connections/create'">Create </button>
         <!-- <a href=""><button id="startButton">Connect</button></a> -->
-        <button id="signUpButton" onclick="window.location.href='/users/signUp'">Sign Up</button>
-        <button id="savedButton" onclick="window.location.href='/users/savedConnections'">Home</button>
-        <button id="connectionButton" onclick="window.location.href='/connections/'">Connect</button>
+        <%} else {%>
+
+        <button class="logInButton" onclick="window.location.href='/users/logIn'">Log In</button>
+        <button class="signUpButton" onclick="window.location.href='/users/signUp'">Sign Up</button>
+        <%}%>
         <h3><%= name%></h3>
     </div>
     <!-- <hr> -->
