@@ -8,5 +8,5 @@
 //   });
 
   window.onload = function() {
-      document. getElementById('signUpButton').disabled = true;
+      document. getElementsByClassName('signUpButton').disabled = true;
     };

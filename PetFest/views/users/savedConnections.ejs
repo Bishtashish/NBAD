@@ -23,30 +23,33 @@
       <% if (conList.length>0){ %>
       <table class="saved" style="width:100%">
         <thead>
-        <tr>
-          <th>Name</th>
-          <th>Event</th>
-          <th>Date</th>
-          <th>Host</th>
-          <th>Image</th>
-          <th>Action</th>
-        </tr>
-      </thead>
+          <tr>
+            <th>Name</th>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Host</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
         <% conList .forEach(item => { %>
         <tbody>
-        <tr>
-          <td><%=item.connectionName%></td>
-          <td><%=item.connectionTopic%></td>
-          <td><%=item.dateTime%></td>
-          <td><%=item.hostName.firstName%></td>
-          <td><img src="<%=item.image%>" alt="some"></td>
-          <td>
-            <button id="updateButton">Update </button>
-            <button id="deleteButton" onclick="window.location.href='/savedConnection/<%=item.connectionName%>/del'">
-              Delete</button>
-          </td>
-        </tr>
-      </tbody>
+          <tr>
+            <td><%=item.connectionName%></td>
+            <td><%=item.connectionTopic%></td>
+            <td><%=item.dateTime%></td>
+            <td><%=item.hostName.firstName%></td>
+            <td><img src="<%=item.image%>" alt="some"></td>
+            <td>
+              <div class="btn-container">
+                <button id="updateButton">Update </button>
+                <button id="deleteButton" onclick="window.location.href='/users/savedConnection/<%=item._id%>'">
+                  Delete</button>
+              </div>
+             
+            </td>
+          </tr>
+        </tbody>
         <% }) %>
       </table>
       <% } %>
@@ -58,45 +61,40 @@
       <h3><%= user.name%>'s Connections</h3>
       <table class="created">
         <thead>
-        <tr>
-          <th>Connection Name</th>
-          <th>Connection Topic</th>
-          <th>Date</th>
-          <th>Start Time</th>
-          <th>End Time</th>
-          
-        </tr>
-      </thead>
+          <tr>
+            <th>Connection Name</th>
+            <th>Connection Topic</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+
+          </tr>
+        </thead>
         <% saveList.forEach(element=>{%>
-          <tbody>
-        <tr>
-          <td>
-            <a href="/connections/<%= element._id%>">
-              <%= element.connectionName%>
-            </a><br>
-          </td>
-          <td>
-            <%= element.connectionTopic%>
-          </td>
-          <td>
-            <%= element.dateTime%>
-          </td>
-          <td>
-            <%= element.startTime%>
-          </td>
-          <td>
-            <%= element.endTime%>
-          </td>
-        </tr>
-      </tbody>
+        <tbody>
+          <tr>
+            <td>
+              <a href="/connections/<%= element._id%>">
+                <%= element.connectionName%>
+              </a><br>
+            </td>
+            <td>
+              <%= element.connectionTopic%>
+            </td>
+            <td>
+              <%= element.dateTime%>
+            </td>
+            <td>
+              <%= element.startTime%>
+            </td>
+            <td>
+              <%= element.endTime%>
+            </td>
+          </tr>
+        </tbody>
         <%});%>
       </table>
       <%}%>
-
-
-
-
-
 
     </main>
 

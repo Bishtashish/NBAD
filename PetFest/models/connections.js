@@ -9,7 +9,7 @@
 //   });
 if( typeof window!=='undefined'){
   window.onload = function() {
-      document. getElementById('connectionButton').disabled = true;
+      document. getElementsByClassName('connectionButton').disabled = true;
       // createTable(conList);
     };
   }

@@ -22,12 +22,12 @@
                 <label for="connectionName">Title</label>
                 <input type="text" id="connectionName" name="connectionName" value="<%= data.connectionName%>"><br><br>
                 <label for="dateTime">Date</label>
-                <input type="text" id="dateTime" name="dateTime" value="<%= data.dateTime%>"><br><br>
+                <input type="date" id="dateTime" name="dateTime" value="<%= data.dateTime%>"><br><br>
 
                 <label for="startTime">Start Time</label>
-                <input type="text" id="startTime" name="startTime" value="<%= data.startTime%>"><br><br>
+                <input type="time" id="startTime" name="startTime" value="<%= data.startTime%>"><br><br>
                 <label for="endTime">End Time</label>
-                <input type="text" id="endTime" name="endTime" value="<%= data.endTime%>"><br><br>
+                <input type="time" id="endTime" name="endTime" value="<%= data.endTime%>"><br><br>
                 <label for="location">Location</label>
                 <input type="text" id="location" name="location" value="<%= data.location%>"><br><br>
                 <label for="connectionTopic">Category</label>
@@ -37,14 +37,6 @@
                     <option value="<%=topic%>" <%=selected%>><%=topic%></option>
                     <%})%>
                 </select><br><br>
-                <script>
-
-                    var e =
-                        document.getElementById('outputTopic');
-                    document.getElementById('connectionTopic').textContent
-                        = e.target.options[e.selectedIndex].value;
-
-                </script>
                 <label for="details">Details</label>
                 <textarea id="details" name="details" rows="4" cols="50"><%=data.details%></textarea><br>
                 <label for="hostName">Host Name</label>

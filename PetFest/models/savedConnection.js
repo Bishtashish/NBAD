@@ -1,6 +1,6 @@
 if( typeof window!=='undefined'){
     window.onload = function() {
-        document. getElementById('savedButton').disabled = true;
+        document. getElementsByClassName('savedButton').disabled = true;
         // createTable(conList);
       };
     }

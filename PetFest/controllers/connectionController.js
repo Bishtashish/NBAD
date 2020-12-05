@@ -64,7 +64,10 @@ exports.getConnectionCreate = (req, res, next) => {
 
 exports.createConnection = (req, res, next) => {
 
-   
+   console.log(req.body.dateTime);
+   console.log(req.body.startTime);
+   console.log(req.body.endTime);
+
     let connection = new Connection({
         connectionName: req.body.connectionName,
         dateTime: req.body.dateTime,
@@ -184,7 +187,7 @@ exports.deleteConnection = (req, res, next) => {
                 Connection.findByIdAndDelete(req.params.id)
                     .then(result => {
                         res.redirect('/connections');
-                    })
+                    });
             else
                 res.redirect('/connections');
         }).catch(err => {
@@ -217,7 +220,7 @@ exports.saveConnectionToUser = (req, res, next) => {
                                         User.findById(req.session.id, { savedConnections: 1 })
                                             .then(conArray => {
                                                 if (conArray)
-                                                    res.render('connections/savedConnection', { conList, name: req.session.user.name + ' Welcome to PetFest!' });
+                                                    res.render('connections/savedConnection', { conList: conArray, name: req.session.user.name + ' Welcome to PetFest!' });
                                                 else
                                                     next();
                                             });
@@ -226,11 +229,10 @@ exports.saveConnectionToUser = (req, res, next) => {
                                         User.findById(req.session.id, { savedConnections: 1 })
                                             .then(conArray => {
                                                 if (conArray)
-                                                    res.render('connections/savedConnection', { conList, name: req.session.user.name + ' Welcome to PetFest!' });
+                                                    res.render('connections/savedConnection', { conList: conArray, name: req.session.user.name + ' Welcome to PetFest!' });
                                                 else
                                                     next();
                                             });
-
                                 })
                         else
                             next();
@@ -247,7 +249,7 @@ exports.deleteConnectionFromUser = (req, res, next) => {
         .then(connection => {
             if (connection)
                 User.findById(req.session.user.id)
-                    .then(user => {
+                    .then(success => {
                         if (success)
                             // res.status(200).render('savedConnection', user.savedConnection);
                             User.findById(req.session.id, { savedConnections: 1 })

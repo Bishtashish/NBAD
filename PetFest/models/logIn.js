@@ -12,7 +12,7 @@
 
 if( typeof window!=='undefined'){
   window.onload = function() {
-      document. getElementById('logInButton').disabled = true;
+      document. getElementsByClassName('logInButton').disabled = true;
       // createTable(conList);
     };
   }

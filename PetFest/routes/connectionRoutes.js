@@ -19,8 +19,8 @@ router.put('/:id', connectionController.updateConnection);
 
 router.delete('/:id', connectionController.deleteConnection);
 
-router.get('/:id/save', connectionController.saveConnectionToUser);
+// router.get('/:id/save', connectionController.saveConnectionToUser);
 
-router.delete('/:id/delete', connectionController.deleteConnectionFromUser);
+// router.delete('/:id/delete', connectionController.deleteConnectionFromUser);
 
 module.exports = router;

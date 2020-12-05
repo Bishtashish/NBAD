@@ -34,14 +34,6 @@
                     <option value="<%=topic%>"><%=topic%></option>
                     <%})%>
                 </select><br><br>
-                <script>
-
-                    var e =
-                        document.getElementById('outputTopic');
-                    document.getElementById('connectionTopic').textContent
-                        = e.target.options[e.selectedIndex].value;
-
-                </script>
                 <label for="details">Details</label>
                 <textarea id="details" name="details" rows="4" cols="50"></textarea><br>
                 <label for="hostName">Host Name</label>
@@ -55,6 +47,7 @@
 
     </div>
 </body>
+
 
 
 </html>
