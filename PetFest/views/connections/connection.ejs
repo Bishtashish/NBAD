@@ -18,6 +18,7 @@
     <!-- <base href=””> -->
     <div id="container">
         <%- include('../partials/header.ejs') %>
+        <%- include('../partials/message.ejs') %>
         <main>
             <h2 id="topic">Pet <%= item.connectionTopic%></h2>
             <h2 id="name"><%= item.connectionName%></h2>
@@ -29,10 +30,11 @@
             <p id="date"><%= item.dateTime%></p>
             <p id="host">Host: <%=item.hostName.firstName%></p>
             <p id="about"><%= item.details%></p>
+            <p id="count"><%= count%> people are going</p>
 
             
 
-            <%if(user.id===item.hostName.id){%>
+            <%if(user!==null && user.id===item.hostName.id){%>
 
                 <p class="q">Do you want to make any changes ?</p>
 
@@ -46,11 +48,15 @@
 
                 <p class="q">Are you interested ?</p>
 
-            <form class="yesButton" action="/users/savedConnections/<%= item._id%>?_method=PUT" method='POST'><button
+            <form class="yesButton" action="/users/savedConnections/<%= item._id%>/yes?_method=PUT" method='POST'><button
                     class="yesButton">Yes</button></form>
 
-            <button class="noButton" onclick="window.location.href='/users/savedConnections'">No</button>
-            <button class="maybeButton" onclick="window.location.href='/users/savedConnections'">Maybe</button>
+            <form class="noButton" action="/users/savedConnections/<%= item._id%>/no?_method=PUT" method='POST'><button
+                class="noButton">No</button></form>
+
+            <form class="maybeButton" action="/users/savedConnections/<%= item._id%>/maybe?_method=PUT" method='POST'><button
+                class="maybeButton">Maybe</button></form>
+                
             <%}%>
         </main> 
       

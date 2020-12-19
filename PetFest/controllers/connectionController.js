@@ -1,5 +1,6 @@
 const Connection = require('../models/connection');
 const User = require('../models/user');
+const validationResult = require('express-validator').validationResult;
 
 
 exports.getAllConnections = (req, res, next) => {
@@ -16,8 +17,10 @@ exports.getAllConnections = (req, res, next) => {
                 obj[item] = all.filter(element => element.connectionTopic === item)
                 newArray.push(obj);
             });
-
-            res.status(200).render('connections/connections', { newArray, name: req.session.user.name + ' Welcome to PetFest!' });
+            var na = "";
+            if (req.session.user !== undefined)
+                na = req.session.user.name;
+            res.status(200).render('connections/connections', { newArray, name: na + ' Welcome to PetFest!' });
 
         })
         .catch(err => {
@@ -33,8 +36,19 @@ exports.getConnectionDetail = (req, res, next) => {
         .populate('hostName')
         .then(result => {
             if (result) {
-                // console.log(result)
-                res.render('connections/connection', { item: result, name: req.session.user.name + ' Welcome to PetFest!' });
+                User.find({ savedConnection: { $elemMatch: { key: { $eq: req.params.id }, val : {$eq: 'yes'} } } })
+                    .then(count => {
+                        var na = "";
+                        if (req.session.user !== undefined)
+                            na = req.session.user.name;
+                        if (count) {
+                            res.render('connections/connection', { item: result, count: count.length, name: na + ' Welcome to PetFest!' });
+                        }
+                        else {
+                            res.render('connections/connection', { item: result, count: 0, name: na + ' Welcome to PetFest!' });
+                        }
+                    });
+
             }
             else {
                 next();
@@ -48,7 +62,7 @@ exports.getConnectionDetail = (req, res, next) => {
 
 exports.getConnectionCreate = (req, res, next) => {
 
-   
+
     Connection.find()
         .then(all => {
             topics = [];
@@ -56,37 +70,47 @@ exports.getConnectionCreate = (req, res, next) => {
                 if (!topics.includes(item.connectionTopic))
                     topics.push(item.connectionTopic);
             });
+
             res.render('connections/newConnection', { conTopics: topics, name: req.session.user.name + ' Welcome to PetFest!' });
         });
-  
+
 }
 
 
 exports.createConnection = (req, res, next) => {
 
-   console.log(req.body.dateTime);
-   console.log(req.body.startTime);
-   console.log(req.body.endTime);
+    const errors = validationResult(req);
+    console.log(errors.array());
+    if (errors.isEmpty()) {
 
-    let connection = new Connection({
-        connectionName: req.body.connectionName,
-        dateTime: req.body.dateTime,
-        startTime: req.body.startTime,
-        endTime: req.body.endTime,
-        connectionTopic: req.body.connectionTopic,
-        details: req.body.details,
-        location: req.body.location,
-        hostName: req.session.user.id,
-        image: req.body.image
-    });
-    connection.save()
-        .then(result => {
-            res.redirect('/connections');
-        })
-        .catch(err => {
-            console.log(err);
-            next();
+        let connection = new Connection({
+            connectionName: req.body.connectionName,
+            dateTime: req.body.dateTime,
+            startTime: req.body.startTime,
+            endTime: req.body.endTime,
+            connectionTopic: req.body.connectionTopic,
+            details: req.body.details,
+            location: req.body.location,
+            hostName: req.session.user.id,
+            image: req.body.image
         });
+        connection.save()
+            .then(result => {
+                req.flash('success', 'You created Connection Successfully');
+                res.redirect('/connections');
+            })
+            .catch(err => {
+                console.log(err);
+                next();
+            });
+
+    }
+    else {
+        errors.array().forEach((error) => {
+            req.flash('error', error.msg);
+        });
+        res.redirect('/connections');
+    }
 }
 
 
@@ -113,7 +137,8 @@ exports.getConnectionUpdate = (req, res, next) => {
                             res.render('connections/editConnection', { data: conn, cat: topics, name: req.session.user.name + ' Welcome to PetFest!' });
                         else
                             // next();
-                            res.redirect('/connections');
+                            req.flash('error', 'you are not authorized to view');
+                        res.redirect('/connections');
                     })
 
             else
@@ -128,33 +153,47 @@ exports.getConnectionUpdate = (req, res, next) => {
 
 exports.updateConnection = (req, res, next) => {
 
-    let conParams = {
-        connectionName: req.body.connectionName,
-        dateTime: req.body.dateTime,
-        startTime: req.body.startTime,
-        endTime: req.body.endTime,
-        connectionTopic: req.body.connectionTopic,
-        details: req.body.details,
-        location: req.body.location,
-        hostName: req.session.user.id,
-        image: req.body.image
-    };
-    Connection.findById(req.params.id)
-        .then(result => {
-            if (result.hostName.equals(req.session.user.id))
-                Connection.findByIdAndUpdate(req.params.id, { $set: conParams })
-                    .then(result => {
-                        if (result)
-                            res.redirect('/connections/' + req.params.id);
-                        else
-                            res.redirect('/connections');
-                    })
-            else
-                res.redirect('/connections');
-        }).catch(err => {
-            console.log(err);
-            next();
+    const errors = validationResult(req);
+    console.log(errors.array());
+    if (errors.isEmpty()) {
+
+        let conParams = {
+            connectionName: req.body.connectionName,
+            dateTime: req.body.dateTime,
+            startTime: req.body.startTime,
+            endTime: req.body.endTime,
+            connectionTopic: req.body.connectionTopic,
+            details: req.body.details,
+            location: req.body.location,
+            hostName: req.session.user.id,
+            image: req.body.image
+        };
+        Connection.findById(req.params.id)
+            .then(result => {
+                if (result.hostName.equals(req.session.user.id))
+                    Connection.findByIdAndUpdate(req.params.id, { $set: conParams })
+                        .then(result => {
+                            if (result) {
+                                req.flash('success', 'Connection updated');
+                                res.redirect('/connections/' + req.params.id);
+                            }
+                            else
+                                res.redirect('/connections');
+                        })
+                else
+                    res.redirect('/connections');
+            }).catch(err => {
+                console.log(err);
+                next();
+            });
+
+    }
+    else {
+        errors.array().forEach((error) => {
+            req.flash('error', error.msg);
         });
+        res.redirect('/connections/' + req.params.id + '/update?');
+    }
 }
 
 
@@ -184,12 +223,51 @@ exports.deleteConnection = (req, res, next) => {
     Connection.findById(req.params.id)
         .then(result => {
             if (result.hostName.equals(req.session.user.id))
-                Connection.findByIdAndDelete(req.params.id)
-                    .then(result => {
-                        res.redirect('/connections');
-                    });
-            else
+                // User.update({"savedConnection.key": req.params.id}, {$pull: { savedConnection: { key: req.params.id } }},{ status: true },{multi: true})
+                // User.update({ $pullAll: { savedConnection: { key: req.params.id } } }, { status: true }, { multi: true })
+
+                User.find({ 'savedConnection.key': req.params.id })
+                    .then(users => {
+                        console.log(users.length);
+                        if (users)                            
+                            users.forEach(user => {
+                                console.log(" inside user")
+                                User.updateOne(user, { $pull: { savedConnection: { key: req.params.id } } })
+                                .then(result => {
+                                    if(result)
+                                       console.log("one")
+
+                                });
+                            });
+                            Connection.findByIdAndDelete(req.params.id)
+                                            .then(result => {
+                                                console.log("inside condition");
+                                                req.flash('success', 'Connection Deleted');
+                                                res.redirect('/connections');
+                                            });
+                    })
+
+                // User.find({ 'savedConnection.key': req.params.id })
+                //     .then(users => {
+                //         console.log(users.length);
+                //         if (users)
+                //             User.updateMany(users, { $pull: { savedConnection: { key: req.params.id } } },{upsert: false, multi: true})
+                //                 .then(result => {
+                //                     if (result) {
+                //                         console.log("one")
+                //                         Connection.findByIdAndDelete(req.params.id)
+                //                             .then(result => {
+                //                                 console.log("inside condition");
+                //                                 req.flash('success', 'Connection Deleted');
+                //                                 res.redirect('/connections');
+                //                             });
+                //                     }
+                //                 });
+                //     });
+            else {
+                req.flash('error', 'You need to logIn for this operation');
                 res.redirect('/connections');
+            }
         }).catch(err => {
             console.log(err);
             next();
@@ -213,7 +291,7 @@ exports.saveConnectionToUser = (req, res, next) => {
                 User.findById(req.session.user.id)
                     .then(user => {
                         if (user)
-                            User.updateOne(user, { $push: { savedConnection: req.params.id } })
+                            User.updateOne(user, { $push: { savedConnection: { key: req.params.id } } })
                                 .then(success => {
                                     if (success)
                                         // res.status(200).render('savedConnection', user.savedConnection);

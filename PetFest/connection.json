@@ -308,7 +308,9 @@
   "location": "Charoltte NC",
   "connectionTopic": "Groom",
   "details": "About: Bark Street Dog Spa has been one of the preferred pet groomers in the city for over 8 years. What sets Bark Street Dog Spa grooming apart is our level of commitment, deep love for animals and breed specific massage. Our goal is to pamper and make our pets feel like royalty. ",
-  "hostName": "Bark Street",
+  "hostName": {
+    "$oid": "5fd641ded7b9c5b69c9b1ae7"
+  },
   "image": "/groom/spa.jpg"
 },{
   "_id": {
@@ -321,7 +323,9 @@
   "location": "Charoltte NC",
   "connectionTopic": "Groom",
   "details": "About: Flea infestations often come from a pet dog or cat. The pests attach to the animal when it's outside, and then infest its fur and the places it sleeps indoors. Flea prevention for both the home and yard can be difficult. Without a proactive approach, any pet owner is vulnerable to an infestation.",
-  "hostName": "Smelly Cat",
+  "hostName": {
+    "$oid": "5fd64190d7b9c5b69c9b1ae6"
+  },
   "image": "/groom/spray.jpg"
 },{
   "_id": {
@@ -334,7 +338,9 @@
   "location": "Charoltte NC",
   "connectionTopic": "Training",
   "details": "About: We’ve been raising and training guide dog puppies since 2006 and we have the privilege of working with these puppies from the time they are 8 weeks old until they are 18 months. During this time we do our best to make sure they are rock solid with a handful of commands.",
-  "hostName": "Tenzin",
+  "hostName": {
+    "$oid": "5fc7fa16d429681af0c342e1"
+  },
   "image": "/train/command.jpg"
 },{
   "_id": {
@@ -347,7 +353,9 @@
   "location": "Charoltte NC",
   "connectionTopic": "Training",
   "details": "About: Many breeds are natural-born swimmers. Many retrievers and spaniels will swim with little encouragement, but dogs with body types less suited to swimming, like Bulldogs, may need more encouragement and should wear a life jacket when swimming. Regardless of breed, all dogs should wear a life jacket when first learning to swim. Most pet supply stores stock life jackets in many sizes and styles appropriate for all body types. Look for a lifejacket with a handle that you can use to guide your dog in the water and a D-ring to attach a leash.",
-  "hostName": "Sea doggo",
+  "hostName": {
+    "$oid": "5fd63f54d7b9c5b69c9b1ae3"
+  },
   "image": "/train/swim.jpg"
 },{
   "_id": {
@@ -360,7 +368,9 @@
   "location": "Charoltte NC",
   "connectionTopic": "Training",
   "details": "About: Many people think that dogs just innately know how to walk politely on a leash, but this skill is something that needs to be trained. It’s an important skill to teach, and one you’ll value every time you take your dog out for a walk. ",
-  "hostName": "Tips N Tricks",
+  "hostName": {
+    "$oid": "5fd6412cd7b9c5b69c9b1ae5"
+  },
   "image": "/train/leash.jpg"
 },{
   "_id": {
@@ -373,7 +383,9 @@
   "location": "Charoltte NC",
   "connectionTopic": "Training",
   "details": "About: There was a time when tug games were thought to cause aggression and dominance in dogs. The current thinking is that if tug-of-war and similar games are managed properly, dogs don’t become aggressive. If, for example, the dog did snap at the owner’s hand while playing, this is not as much a result of tug-of-war as it is an owner who did not effectively set boundaries and teach the dog the rules of the game. We welcome you and your dog to participate in this event.",
-  "hostName": "Tenzin",
+  "hostName": {
+    "$oid": "5fc7fa16d429681af0c342e1"
+  },
   "image": "/train/tug.jpg"
 },{
   "_id": {
@@ -386,7 +398,9 @@
   "location": "Charoltte NC",
   "connectionTopic": "Adoption",
   "details": "About: We know how exciting it is to bring a new family member into your home! Just as you would prep your home for a new child, we encourage you to approach adopting a pet in the same manner. The key to helping your new animal make a successful adjustment to your home is being prepared. It can take anywhere from two days to several weeks for you and your pet to adjust to each other so be patient and reach out if you have any questions or need additional resources.",
-  "hostName": "City Council",
+  "hostName": {
+    "$oid": "5fd64010d7b9c5b69c9b1ae4"
+  },
   "image": "/adopt/shelter.jpg"
 },{
   "_id": {
@@ -399,7 +413,9 @@
   "location": "Charoltte NC",
   "connectionTopic": "Adoption",
   "details": "About: Did you know that shelters and rescues always have a great selection of animals looking for new homes? You can find cats, dogs, birds, small animals, even horses and livestock. In fact, any type of animal available for sale at your local pet store or from a breeder is probably waiting for adoption in a nearby shelter or rescue.",
-  "hostName": "Fluffy",
+  "hostName": {
+    "$oid": "5fd63e64d7b9c5b69c9b1ae2"
+  },
   "image": "/adopt/big.jpg"
 },{
   "_id": {
@@ -412,32 +428,79 @@
   "location": "Charoltte NC",
   "connectionTopic": "Adoption",
   "details": "About: The Shelter Pet Project’s new #AdoptPureLove campaign celebrates the special qualities of shelter pets and the incredible bond between every shelter pet and parent. Through the stories of actresses Olivia Munn and Rachel Bloom, NFL player Logan Ryan and everyday people, #AdoptPureLove encourages audiences to adopt from shelters and rescue groups nationwide.",
-  "hostName": "Runt of the Litter",
+  "hostName": {
+    "$oid": "5fd63df1d7b9c5b69c9b1ae1"
+  },
   "image": "/adopt/pup.jpg"
 },{
   "_id": {
-    "$oid": "5fc9bed634efbc554eb4115e"
+    "$oid": "5fd163832d46ea5a471b3f9a"
+  },
+  "image": "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg",
+  "connectionName": "new",
+  "dateTime": "2020-12-29",
+  "startTime": "07:53",
+  "endTime": "08:53",
+  "connectionTopic": "new",
+  "details": "something",
+  "location": "Gurugram",
+  "hostName": {
+    "$oid": "5fc70d907a56c6f48c3943bd"
+  }
+},{
+  "_id": {
+    "$oid": "5fd19ac84fe96b60d71c2c74"
+  },
+  "image": "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg",
+  "connectionName": "flash",
+  "dateTime": "2020-11-30",
+  "startTime": "11:49",
+  "endTime": "00:49",
+  "connectionTopic": "new",
+  "details": "test",
+  "location": "Gurugram",
+  "hostName": {
+    "$oid": "5fc70d907a56c6f48c3943bd"
+  }
+},{
+  "_id": {
+    "$oid": "5fdc0c52cc01676230b8eadb"
   },
   "image": "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg",
   "connectionName": "dummy2",
-  "dateTime": "2020-12-17",
-  "startTime": "23:47",
-  "endTime": "23:47",
-  "connectionTopic": "Groom",
-  "details": "asdfgwertyy",
+  "dateTime": "2020-12-13",
+  "startTime": "22:56",
+  "endTime": "23:56",
+  "connectionTopic": "Meetup",
+  "details": "sdasa",
   "location": "Gurugram",
   "hostName": {
     "$oid": "5fc70d907a56c6f48c3943bd"
   }
 },{
   "_id": {
-    "$oid": "5fc9bffcb4298555f69ffa28"
+    "$oid": "5fdc0c66cc01676230b8eadc"
   },
   "image": "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg",
-  "connectionName": "dummy",
-  "dateTime": "2020-12-30",
-  "startTime": "14:49",
-  "endTime": "14:49",
+  "connectionName": "dummy3",
+  "dateTime": "2020-12-20",
+  "startTime": "22:56",
+  "endTime": "22:56",
+  "connectionTopic": "Meetup",
+  "details": "sasad",
+  "location": "Gurugram",
+  "hostName": {
+    "$oid": "5fc70d907a56c6f48c3943bd"
+  }
+},{
+  "_id": {
+    "$oid": "5fdd556f9240551081148add"
+  },
+  "image": "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg",
+  "connectionName": "regexp",
+  "dateTime": "2020-12-18",
+  "startTime": "21:20",
+  "endTime": "22:20",
   "connectionTopic": "Meetup",
   "details": "asdf",
   "location": "Gurugram",
@@ -446,38 +509,17 @@
   }
 },{
   "_id": {
-    "$oid": "5fcac934cd3f7e8a48be334c"
+    "$oid": "5fdd726f96b461185b1d890d"
   },
   "image": "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg",
-  "connectionName": "Akansha",
-  "dateTime": {
-    "$date": "2020-12-31T00:00:00Z"
-  },
-  "startTime": {
-    "$date": "2020-12-31T13:40:00Z"
-  },
-  "endTime": {
-    "$date": "2020-12-31T14:41:00Z"
-  },
+  "connectionName": "sind",
+  "dateTime": "2020-12-19",
+  "startTime": "11:23",
+  "endTime": "12:23",
   "connectionTopic": "Meetup",
-  "details": "Akansha to blame for this.",
+  "details": "anything",
   "location": "Gurugram",
   "hostName": {
-    "$oid": "5fc70d907a56c6f48c3943bd"
-  }
-},{
-  "_id": {
-    "$oid": "5fcaedf8b36e919bfb427846"
-  },
-  "image": "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg",
-  "connectionName": "Time test",
-  "dateTime": "2020-12-29",
-  "startTime": "22:18",
-  "endTime": "23:18",
-  "connectionTopic": "Meetup",
-  "details": "asdf",
-  "location": "Gurugram",
-  "hostName": {
-    "$oid": "5fc70d907a56c6f48c3943bd"
+    "$oid": "5fdd720f96b461185b1d890c"
   }
 }]

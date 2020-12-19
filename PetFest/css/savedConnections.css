@@ -8,7 +8,7 @@
         display:inline-block;
     }
     
-    #updateButton{
+    .updateButton{
         margin-right:20px;
         /* background-image: url("resources/login1.jpg"); */
         
@@ -34,7 +34,7 @@
         border-bottom: 3px solid #4caf50;
     }
     
-    #deleteButton{
+    .deleteButton{
         margin-right:20px;
         /* background-image: url("resources/login1.jpg"); */
 
@@ -149,4 +149,16 @@
           margin-top: 10px;
           color: black;
       }
-    
+      body{
+
+        top:0%;
+        margin: 0;
+        /* height:100%; */
+        padding: 0;
+        /* position:relative; */
+        /* font-family: sans-serif; */
+        background: white;
+        /* background-size: cover; */
+        /* padding-bottom: 150px; */
+        /* z-index:9; */
+    }

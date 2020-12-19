@@ -18,6 +18,7 @@
 <body>
     <div id="container">
         <%- include('../partials/header.ejs') %> 
+        <%- include('../partials/message.ejs') %>
         <main>
             <!-- <div id="image"></div> -->
 
@@ -33,12 +34,7 @@
                         
                         <span><%= index+1 %></span>
                         <%= item.connectionName %>
-                        <% if(item.hostName === user.id) {%>
-                            <form>
-                                <button type="submit" formmethod="GET" formaction="/connections/<%= item._id%>/update">Edit</button>
-                                <button type="submit" formmethod="POST" formaction="/connections/<%= item._id%>?_method=DELETE">Delete</button>
-                            </form>
-                            <% } %>
+                        
                     </li>
                     <% }) %>   
                 </ul>

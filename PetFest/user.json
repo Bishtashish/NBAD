@@ -4,7 +4,22 @@
   },
   "savedConnection": [
     {
-      "$oid": "5fb976717ba26e93353ddb87"
+      "key": {
+        "$oid": "5fb976717ba26e93353ddb82"
+      },
+      "val": "yes"
+    },
+    {
+      "key": {
+        "$oid": "5fb976717ba26e93353ddb81"
+      },
+      "val": "yes"
+    },
+    {
+      "key": {
+        "$oid": "5fb976717ba26e93353ddb80"
+      },
+      "val": "maybe"
     }
   ],
   "firstName": "Ashish",
@@ -36,8 +51,15 @@
   "_id": {
     "$oid": "5fc7fadf428d561b5a541690"
   },
-  "savedConnection": [],
   "firstName": "Hima",
+  "savedConnection": [
+    {
+      "key": {
+        "$oid": "5fdc0c52cc01676230b8eadb"
+      },
+      "val": "yes"
+    }
+  ],
   "lastName": "Abe",
   "email": "hima@uncc.edu",
   "password": "$2b$10$D5mOOfEhgqzSNzZAhtk7VuwDvx7PAdgSkuBNlGmGq.3YSt8OL.Xne",
@@ -91,5 +113,85 @@
   "lastName": "Daily",
   "email": "news@uncc.edu",
   "password": "$2b$10$vjDJP.uF44H4zXTZGQsOMupMl6V1vefbhSmXB1KFPGIV2PpMeFQAS",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fd63df1d7b9c5b69c9b1ae1"
+  },
+  "firstName": "Runt",
+  "lastName": "Litter",
+  "email": "runt@uncc.edu",
+  "password": "$2b$10$Rfxnpz52X9x5yZzULVPG8OQLssEim4TpSnKdoSVrXGBK1PG80vCJe",
+  "savedConnection": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fd63e64d7b9c5b69c9b1ae2"
+  },
+  "firstName": "Fluffy",
+  "lastName": "Paws",
+  "email": "fluffy@uncc.edu",
+  "password": "$2b$10$pkf0SukO/LCIBrNuTVj2d.i2ZxTlGShZlu5FR3Uyq2MtgHnXMqQoi",
+  "savedConnection": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fd63f54d7b9c5b69c9b1ae3"
+  },
+  "firstName": "Sea",
+  "lastName": "Doggo",
+  "email": "sea@uncc.edu",
+  "password": "$2b$10$OZOJ25ktUIvHjLXySzWOwuk1v4LSGn1vg5wOh3WUCSq/UQysT.wl2",
+  "savedConnection": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fd64010d7b9c5b69c9b1ae4"
+  },
+  "firstName": "City",
+  "lastName": "Council",
+  "email": "city@uncc.edu",
+  "password": "$2b$10$zEQ5NQiMMFwoQKXD5pVi/uGnocr2F1E5SGGWVtDqOTMenl0lcRxnC",
+  "savedConnection": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fd6412cd7b9c5b69c9b1ae5"
+  },
+  "firstName": "TipsNTricks",
+  "lastName": "Com",
+  "email": "tips@uncc.edu",
+  "password": "$2b$10$F5t7.8.6nn.PWx/Rmr1pGunuy86/WGyaTIaAolthSDImAPyx9vkV2",
+  "savedConnection": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fd64190d7b9c5b69c9b1ae6"
+  },
+  "firstName": "Smelly",
+  "lastName": "Cat",
+  "email": "smelly@uncc.edu",
+  "password": "$2b$10$7vD6b48uF9yeq4krNVstfe.NSsei7qXdYxSKrRxhKVhkuqJKhuPFq",
+  "savedConnection": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fd641ded7b9c5b69c9b1ae7"
+  },
+  "firstName": "Bark",
+  "lastName": "Street",
+  "email": "bark@uncc.edu",
+  "password": "$2b$10$F08TeCvGrzN6Sa6.w5dRsu1JnME4sa7ZRECjhcuyeVZxgIUnURVsO",
+  "savedConnection": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fdd720f96b461185b1d890c"
+  },
+  "firstName": "Sindhura",
+  "lastName": "Chan",
+  "email": "s@uncc.edu",
+  "password": "$2b$10$IKkKRdWsGhf7.hW6wgH6qe3ACL9wPUbFmNLQ/X9c6Cy5vcd59AHJu",
+  "savedConnection": [],
   "__v": 0
 }]

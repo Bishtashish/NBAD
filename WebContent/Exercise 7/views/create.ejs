@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<!-- <header>
+    <h3>Welcome to Fast Food Inc!</h3>
+  </header> -->
+  <%- include('./partials/header.ejs') %>
+  <%- include('./partials/nav.ejs') %>
+  <main>
+    <form action="/" method="post">
+      <label for="Restaurant Name">Restaurant name:</label><br>
+      <input type="text" id="rname" name="name"><br>
+      <label for="Year Founded">Year Founded:</label><br>
+      <input type="text" id="yfound" name="yearFounded"><br>
+      <label for="Owner">Owner:</label><br>
+      <input type="text" id="owner" name="Owner"><br>
+      <label for="Image URL">Image URL:</label><br>
+      <input type="text" id="iurl" name="imageURL"><br>
+      <input type="submit"  value="Submit"><br>
+    </form>
+
+</main>
+
+
+<%- include('./partials/footer.ejs') %>
+</body>
+</html>

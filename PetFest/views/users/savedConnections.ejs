@@ -4,7 +4,7 @@
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Saced Connections</title>
+  <title>Saved Connections</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
   <link rel='stylesheet' type='text/css' media='screen' href='/navButtons.css'>
@@ -18,87 +18,108 @@
 <body>
   <div id="container">
     <%- include('../partials/header.ejs') %>
-    <main>
-      <h3>Saved Connections</h3>
-      <% if (conList.length>0){ %>
-      <table class="saved" style="width:100%">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Event</th>
-            <th>Date</th>
-            <th>Host</th>
-            <th>Image</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <% conList .forEach(item => { %>
-        <tbody>
-          <tr>
-            <td><%=item.connectionName%></td>
-            <td><%=item.connectionTopic%></td>
-            <td><%=item.dateTime%></td>
-            <td><%=item.hostName.firstName%></td>
-            <td><img src="<%=item.image%>" alt="some"></td>
-            <td>
-              <div class="btn-container">
-                <button id="updateButton">Update </button>
-                <button id="deleteButton" onclick="window.location.href='/users/savedConnection/<%=item._id%>'">
-                  Delete</button>
-              </div>
-             
-            </td>
-          </tr>
-        </tbody>
-        <% }) %>
-      </table>
-      <% } %>
+      <%- include('../partials/message.ejs') %>
+        <main>
+          <h3>Saved Connections</h3>
+          <% if (conList.length>0){ %>
+            <table class="saved" style="width:100%">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Event</th>
+                  <th>Date</th>
+                  <th>Host</th>
+                  <th>Image</th>
+                  <th>Are you going ?</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <% conList .forEach(item=> { %>
+                <tbody>
+                  <tr>
+                    <td>
+                      <%=item.key.connectionName%>
+                    </td>
+                    <td>
+                      <%=item.key.connectionTopic%>
+                    </td>
+                    <td>
+                      <%=item.key.dateTime%>
+                    </td>
+                    <td>
+                      <%=item.key.hostName.firstName%>
+                    </td>
+                    <td><img src="<%=item.key.image%>" alt="some"></td>
+                    <td>
+                      <%=item.val%>
+                    </td>
+                    <td>
+                      <div class="btn-container">
+
+                        <form class="updateButton" action="/connections/<%= item.key._id%>" method='GET'>
+                          <button class="updateButton">Update</button>
+                        </form>
+
+                        <form class="deleteButton" action="/users/savedConnections/<%= item.key._id%>?_method=DELETE"
+                          method='POST'>
+                          <button class="deleteButton">Delete</button>
+                        </form>
+                      </div>
+
+                    </td>
+                  </tr>
+                </tbody>
+                <% }) %>
+            </table>
+            <% } %>
 
 
 
-      <% if (saveList.length>0) { %>
+              <% if (saveList.length>0) { %>
 
-      <h3><%= user.name%>'s Connections</h3>
-      <table class="created">
-        <thead>
-          <tr>
-            <th>Connection Name</th>
-            <th>Connection Topic</th>
-            <th>Date</th>
-            <th>Start Time</th>
-            <th>End Time</th>
+                <h3>
+                  <%= user.name%>'s Connections
+                </h3>
+                <table class="created">
+                  <thead>
+                    <tr>
+                      <th>Connection Name</th>
+                      <th>Connection Topic</th>
+                      <th>Date</th>
+                      <th>Start Time</th>
+                      <th>End Time</th>
 
-          </tr>
-        </thead>
-        <% saveList.forEach(element=>{%>
-        <tbody>
-          <tr>
-            <td>
-              <a href="/connections/<%= element._id%>">
-                <%= element.connectionName%>
-              </a><br>
-            </td>
-            <td>
-              <%= element.connectionTopic%>
-            </td>
-            <td>
-              <%= element.dateTime%>
-            </td>
-            <td>
-              <%= element.startTime%>
-            </td>
-            <td>
-              <%= element.endTime%>
-            </td>
-          </tr>
-        </tbody>
-        <%});%>
-      </table>
-      <%}%>
+                    </tr>
+                  </thead>
+                  <% saveList.forEach(element=>{%>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <a href="/connections/<%= element._id%>">
+                            <%= element.connectionName%>
+                          </a><br>
+                        </td>
+                        <td>
+                          <%= element.connectionTopic%>
+                        </td>
+                        <td>
+                          <%= element.dateTime%>
+                        </td>
+                        <td>
+                          <%= element.startTime%>
+                        </td>
+                        <td>
+                          <%= element.endTime%>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <%});%>
+                </table>
+                <%}%>
 
-    </main>
+        </main>
 
-    <%- include('../partials/footer.ejs') %>
+        <%- include('../partials/footer.ejs') %>
   </div>
   <script src="/savedConnection.js"></script>
 </body>

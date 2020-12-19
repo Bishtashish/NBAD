@@ -16,12 +16,13 @@
 
     <div id="container">
         <%- include('../partials/header.ejs')%>
+        <%- include('../partials/message.ejs') %>
         <div class="wrap">
             <form action="/connections/" method="POST">
                 <label for="connectionName">Title</label>
                 <input type="text" id="connectionName" name="connectionName" required><br><br>
                 <label for="dateTime">Date</label>
-                <input type="date" id="dateTime" name="dateTime" required><br><br>
+                <input type="date" min="2020-12-19" id="dateTime" name="dateTime" required><br><br>
                 <label for="startTime">Start Time</label>
                 <input type="time" id="startTime" name="startTime" required><br><br>
                 <label for="endTime">End Time</label>
@@ -29,11 +30,14 @@
                 <label for="location">Location</label>
                 <input type="text" id="location" name="location" required><br><br>
                 <label for="connectionTopic">Category</label>
-                <select id="connectionTopic" class="connectionTopic" name="connectionTopic">
+                <!-- <select id="connectionTopic" class="connectionTopic" name="connectionTopic"> -->
+                <input list="topic" id="connectionTopic" class="connectionTopic" name="connectionTopic">
+                    <datalist id="topic">
                     <%   conTopics.forEach(topic =>{%>
                     <option value="<%=topic%>"><%=topic%></option>
                     <%})%>
-                </select><br><br>
+                    </datalist><br><br>
+                <!-- </select><br><br> -->
                 <label for="details">Details</label>
                 <textarea id="details" name="details" rows="4" cols="50"></textarea><br>
                 <label for="hostName">Host Name</label>
@@ -46,6 +50,23 @@
         <%- include('../partials/footer.ejs')%>
 
     </div>
+    <script>var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+         if(dd<10){
+                dd='0'+dd
+            } 
+            if(mm<10){
+                mm='0'+mm
+            } 
+        
+        today = yyyy+'-'+mm+'-'+dd;
+        document.getElementById("dateTime").setAttribute("min", today);
+        var startTime = document.getElementById("startTime");
+        startTime.addEventListener("input", function () {
+        document.getElementById("endTime").setAttribute("min", startTime.value);
+        }, false);</script>
 </body>
 
 

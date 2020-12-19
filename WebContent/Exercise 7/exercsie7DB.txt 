@@ -1,0 +1,24 @@
+db.restaurants.insert({
+    name:"Bojangles",
+    yearFounded:1950,
+    Owner:"Some guy", 
+    imageURL:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Bojangle%27s_closeup%2C_Tifton.jpg/800px-Bojangle%27s_closeup%2C_Tifton.jpg"})
+db.restaurants.insert({
+    name:"Wendy's",
+    yearFounded:1960,
+    Owner:"Some dude"})
+db.restaurants.insert({
+    name:"Chick-Fil-A",
+    yearFounded:1970,
+    Owner:"Some Lady",
+    imageURL:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Chick-fil-A_Logo.svg/220px-Chick-fil-A_Logo.svg.png"})
+db.restaurants.insert({
+    name:"pandaexpress",
+     yearFounded:1980,
+     Owner:"Some Panda",
+      imageURL:"https://kyl746.media.zestyio.com/panda-express-1.f1cb27a519bdb5b6ed34049a5b86e317.jpg"})
+db.restaurants.insert({
+    name:"Subway",
+    yearFounded:1990,
+    Owner:"Someone hungry",
+     imageURL:"https://cdn.cnn.com/cnnnext/dam/assets/190501132028-subway-restaurant-restricted-exlarge-169.jpg"})

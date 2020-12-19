@@ -10,6 +10,19 @@ html {
 	flex-direction: column;
  }
 
+ body{
+
+	top:0%;
+	margin: 0;
+	height:100%;
+	padding: 0;
+	position:relative;
+	font-family: sans-serif;
+	background: url(background4.jpg) no-repeat;
+	background-size: cover;
+	/* padding-bottom: 150px; */
+	/* z-index:9; */
+}
 
 * {
 	box-sizing: border-box;
@@ -100,16 +113,7 @@ position: relative;
 height: 100%;
 
 }
- /* .text{
 
-	left: 330px;
-	align-items: center;
-	font-size: 20px;
-	font-weight: 700;
-	word-break: break-all;
-	position: relative;
-
-}  */
 
 
 .text{
@@ -121,9 +125,6 @@ height: 100%;
     white-space: pre-wrap;
     font-size: x-large;
 }
-
-
-
 
 main{
 	padding-bottom: 10%;
@@ -140,6 +141,7 @@ main{
 	color: transparent;
 	/* z-index:10; */
 }
+
 main h2{
 	color: black; 
 	margin-bottom:10px;
@@ -215,7 +217,7 @@ main h2{
 }
 
 .footer svg{
-	top: 10%;
+	top: 10px;
 	display: inline-block;
 	grid-template-columns: 250px 1fr;
 	grid-template-rows: 150px 1fr;
@@ -225,6 +227,7 @@ main h2{
 	color: white;
 	position: relative;
 }
+
 #facebook{
 	background-image: url('/socialmedia/facebook.png');
 	grid-template-columns: 250px 1fr;
@@ -232,12 +235,13 @@ main h2{
 	background-size: 100px 100px;
 	/* background-attachment: fixed; */
 	background-position: center; 
-	height: 80px;  
-	width: 80px;
+	height: 70px;  
+	width: 70px;
 	border: #ccc;
 	border-radius: 45px;
 	/* color: transparent; */
 }
+
 #twitter{
 	background-image: url('/socialmedia/twitter.png');
 	grid-template-columns: 250px 1fr;
@@ -245,11 +249,12 @@ main h2{
 	background-size: 100px 100px;
 	/* background-attachment: fixed; */
 	background-position: center; 
-	height: 80px;  
-	width: 80px;
+	height: 70px;  
+	width: 70px;
 	border: #ccc;
 	border-radius: 45px;
 }
+
 #instagram{
 	background-image: url('/socialmedia/instagram.png');
 	grid-template-columns: 250px 1fr;
@@ -257,8 +262,8 @@ main h2{
 	background-size: 100px 100px;
 	/* background-attachment: fixed; */
 	background-position: center; 
-	height: 80px;  
-	width: 80px;
+	height: 70px;  
+	width: 70px;
 	border: #ccc;
 	border-radius: 45px;
 }
@@ -270,19 +275,16 @@ main h2{
 	background-size: 100px 100px;
 	/* background-attachment: fixed; */
 	background-position: center; 
-	height: 80px;  
-	width: 80px;
+	height: 70px;  
+	width: 70px;
 	border: #ccc;
 	border-radius: 45px;
 }
-
-
 
 ul{
 	list-style-type: none;
 	overflow: hidden;
 }
-
 
 table,td,th{
 	border: 1px solid black;
@@ -307,8 +309,6 @@ img{
 	cursor: pointer;
 	position: fixed;
 }
-
-
 
   .animation-title {
 	font-family: sans-serif;
@@ -336,43 +336,24 @@ img{
 	left: 10%;
 	transform: translateX(-50%);
   }
-
-/* // animation container 
- .animation-title {
-  font-family: sans-serif;
-  text-align: center;
+  .success {
+	/* background: rgba(108, 192, 112, 0.7); */
+	/* background-image: -webkit-repeating-linear-gradient(green, transparent); */
+	background-image: -webkit-repeating-radial-gradient(green, transparent);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 10px 10px;
 }
 
-.eye-animation {  
-   // place in the middle of the screen
-  margin: auto;
-  
-  width: 300px;
-  height: 300px;
-  
-   // we set the horizontal size to 1800% because we have 18 frames
-  // and we position the sprite so that left frame is visible
-   background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/blinking-eye-sprite.svg'); 
-  background-image: url('resources/tails/tail.svg');
-  background-size: 1800%, 100%;
-  background-position: left;
-  background-repeat: no-repeat;
-  
-   // 'animation-timing-function' ensures users won’t see half of one frame and half of the following frame both at the same time
-  // we set the number of steps to 17 because we have 18 frames  
-  animation-name: eye-fill;
-  animation-duration: 1.3s;
-  animation-timing-function: steps(5);
-  animation-iteration-count: infinite;
+.error {
+	/* background: rgba(255, 102, 51, 0.7); */
+	/* background-image: linear-gradient(red, blue); */
+	background-image: -webkit-repeating-radial-gradient(red, transparent);
+	/*background: linear-gradient(pink 50%, cyan 50%); */
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 10px 10px;
 }
-
- // during the animation we move the background-image from left to right 
-@keyframes eye-fill {
-  from {
-    background-position: left;
-  }
-  to { 
-    background-position: right;
-  }
-} */
 

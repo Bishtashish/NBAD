@@ -6,6 +6,8 @@ const session = require('express-session');
 const connectionRoutes = require('./routes/connectionRoutes');
 const userRoutes = require('./routes/userRoutes');
 const moment = require("moment");
+const flash = require('connect-flash');
+
 
 var app = express();
 app.set('view engine', 'ejs')
@@ -24,11 +26,15 @@ app.use(session({
     saveUninitialized: false,
 }));
 
+app.use(flash());
+
 
 app.use(methodOverride('_method'));
 
 app.use((req, res, next) => {
     res.locals.user = req.session.user || null;
+    res.locals.errorMessages = req.flash('error');
+    res.locals.successMessages = req.flash('success');
     res.locals.moment = moment;
     next();
 });
@@ -50,11 +56,11 @@ app.use('/connections', connectionRoutes);
 app.use('/users', userRoutes);
 
 app.get('/about', function (req, res, next) {
-    res.status(200).render('about');
+    res.status(200).render('about', { name: 'Welcome to PetFest!' });
 })
 
 app.get('/contact', function (req, res, next) {
-    res.status(200).render('contact');
+    res.status(200).render('contact', { name: 'Welcome to PetFest!' });
 })
 
 app.use((req, res) => {

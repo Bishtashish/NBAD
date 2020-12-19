@@ -2,22 +2,26 @@ const express = require('express');
 const router = express.Router();
 const isLoggedIn = require('../controllers/authController').isLoggedIn;
 const connectionController = require('../controllers/connectionController');
+const validateConnection = require('../middlewares/validator').validateConnection;
 
-router.use('/', isLoggedIn);
+
+// router.use('/', isLoggedIn);
 
 router.get('/', connectionController.getAllConnections);
 
-router.post('/', connectionController.createConnection);
 
-router.get('/create', connectionController.getConnectionCreate);
+
+router.post('/', isLoggedIn, validateConnection, connectionController.createConnection);
+
+router.get('/create', isLoggedIn, connectionController.getConnectionCreate);
 
 router.get('/:id', connectionController.getConnectionDetail);
 
-router.get('/:id/update', connectionController.getConnectionUpdate);
+router.get('/:id/update', isLoggedIn, connectionController.getConnectionUpdate);
 
-router.put('/:id', connectionController.updateConnection);
+router.put('/:id', isLoggedIn, validateConnection, connectionController.updateConnection);
 
-router.delete('/:id', connectionController.deleteConnection);
+router.delete('/:id',isLoggedIn, connectionController.deleteConnection);
 
 // router.get('/:id/save', connectionController.saveConnectionToUser);
 

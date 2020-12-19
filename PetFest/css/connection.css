@@ -168,6 +168,18 @@ main h2{
 	color: Black;
 }
 
+#count{
+	margin: 0;
+	grid-row: 3 / span 1;
+	grid-column: span 1 / -1;
+	border-left:4px solid #4CAF50;
+	padding: 4px;
+	/* border-bottom: 4px solid #4CAF50; */
+	position: absolute;
+	font-size: x-large;
+	color: Black;
+}
+
 #about{
 	/* top:30px; */
 	/* display: inline-block; */

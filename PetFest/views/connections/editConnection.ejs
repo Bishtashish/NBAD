@@ -16,40 +16,65 @@
 
     <div id="container">
         <%- include('../partials/header.ejs')%>
-        <main>
-            <div class="wrap">
-            <form id="myForm" action="/connections/<%= data._id%>?_method=PUT" method="POST">
-                <label for="connectionName">Title</label>
-                <input type="text" id="connectionName" name="connectionName" value="<%= data.connectionName%>"><br><br>
-                <label for="dateTime">Date</label>
-                <input type="date" id="dateTime" name="dateTime" value="<%= data.dateTime%>"><br><br>
+            <%- include('../partials/message.ejs') %>
+                <main>
+                    <div class="wrap">
+                        <form id="myForm" action="/connections/<%= data._id%>?_method=PUT" method="POST">
+                            <label for="connectionName">Title</label>
+                            <input type="text" id="connectionName" name="connectionName"
+                                value="<%= data.connectionName%>"><br><br>
+                            <label for="dateTime">Date</label>
+                            <input type="date" min="2020-12-18" id="dateTime" name="dateTime"
+                                value="<%= data.dateTime%>"><br><br>
 
-                <label for="startTime">Start Time</label>
-                <input type="time" id="startTime" name="startTime" value="<%= data.startTime%>"><br><br>
-                <label for="endTime">End Time</label>
-                <input type="time" id="endTime" name="endTime" value="<%= data.endTime%>"><br><br>
-                <label for="location">Location</label>
-                <input type="text" id="location" name="location" value="<%= data.location%>"><br><br>
-                <label for="connectionTopic">Category</label>
-                <select id="connectionTopic" name="connectionTopic" class="connectionTopic">
-                    <%   cat.forEach(topic =>{%>
-                    <% selected = (topic == data.connectionTopic) ? "selected" : ""; %>
-                    <option value="<%=topic%>" <%=selected%>><%=topic%></option>
-                    <%})%>
-                </select><br><br>
-                <label for="details">Details</label>
-                <textarea id="details" name="details" rows="4" cols="50"><%=data.details%></textarea><br>
-                <label for="hostName">Host Name</label>
-                <input type="text" id="hostName" name="hostName" value="<%= data.hostName.firstName%>"><br>
-                <label for="image">Image</label>
-                <input type="text" id="image" name="image" value="<%= data.image%>"><br><br>
-                <button class="btn" type="submit" name="btn" value="Submit" form="myForm">Submit</button>
-            </form>
-            </div>
-        </main>
-        <%- include('../partials/footer.ejs')%>
+                            <label for="startTime">Start Time</label>
+                            <input type="time" id="startTime" name="startTime" value="<%= data.startTime%>"><br><br>
+                            <label for="endTime">End Time</label>
+                            <input type="time" id="endTime" name="endTime" value="<%= data.endTime%>"><br><br>
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" value="<%= data.location%>"><br><br>
+                            <label for="connectionTopic">Category</label>
+                            <select id="connectionTopic" name="connectionTopic" class="connectionTopic">
+                                <% cat.forEach(topic=>{%>
+                                    <% selected=(topic==data.connectionTopic) ? "selected" : "" ; %>
+                                        <option value="<%=topic%>" <%=selected%>><%=topic%>
+                                        </option>
+                                        <%})%>
+                            </select><br><br>
+                            <label for="details">Details</label>
+                            <textarea id="details" name="details" rows="4" cols="50"><%=data.details%></textarea><br>
+                            <label for="hostName">Host Name</label>
+                            <input type="text" id="hostName" name="hostName" value="<%= data.hostName.firstName%>"><br>
+                            <label for="image">Image</label>
+                            <input type="text" id="image" name="image" value="<%= data.image%>"><br><br>
+                            <button class="btn" type="submit" name="btn" value="Submit" form="myForm">Submit</button>
+                        </form>
+                    </div>
+                </main>
+                <%- include('../partials/footer.ejs')%>
 
     </div>
+    <script>var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("dateTime").setAttribute("min", today);
+        var startTime = document.getElementById("startTime");
+        startTime.addEventListener("input", function () {
+        document.getElementById("endTime").setAttribute("min", startTime.value);
+        }, false);
+    </script>
+
+
+
 </body>
 
 

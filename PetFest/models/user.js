@@ -2,14 +2,27 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
 const Schema = mongoose.Schema;
 
+
+// const savedConnection = new Schema({
+//     key: {
+//         type: Schema.Types.ObjectId,
+//         ref: 'connection'
+//     },
+//     val: {
+//         type: String,
+//         required: true
+//     }
+
+// })
+
 const userSchema = new Schema({
     firstName: {
         type: String,
-        required: true,
+        required: true
     },
     lastName: {
         type: String,
-        required: true,
+        required: true
     },
     email: {
         type: String,
@@ -19,15 +32,30 @@ const userSchema = new Schema({
 
     password: {
         type: String,
-        required: true,
+        required: true
     },
 
+    // savedConnection: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'connection'
+    //     // default: []
+    // }]
+    // savedConnection: [savedConnection]
     savedConnection: [{
-        type: Schema.Types.ObjectId,
-        ref: 'connection'
-        // default: []
-    }]
+        _id: false,
+        key: {
+            type: Schema.Types.ObjectId,
+            ref: 'connection'
+        },
+         val: {
+             type: String,
+            required: true
+        }
+    }
+        ]
 });
+
+
 
 
 userSchema.pre('save', function(next){
